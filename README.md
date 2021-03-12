@@ -26,6 +26,10 @@ My main focus in this notebook has been selecting the important features. I have
 
 1. XGBoost was the best in finding important features.
 2. LightGBM performed poorly (very low accuracy) and found the worst features as important. The reason can be lightgbm requires large number of data while our training data set only had 891 records. This is one reason LightGBM worked poorly even after data cleaning by droping PassengerId, Name and Ticket.
-3. Catboost alone didn't work well. But by droping poor features from the training data set and taking mean of feature importances of Catboost in 5-fold cross-validation it became considerably better.
+3. Catboost alone didn't work well. But by droping poor features from the training data set and taking mean of feature importances of Catboost in 5-fold cross-validation it became considerably better. As you can see below, catboost has chosen name as an important feature which is truely wrong. Name however has correlation with sex, and sex is an important feature. It may be a reason.
 
 ![Catbbost Important Features](img/catboost.PNG)
+
+4. Aplying different methods for feature selection to the same algorithm may cause different set of features as it was the case with catboost. Also it may change the order of important features. For instance applying RFE on XGBoost resulted in Sex, PClass and Cabin, while using 5-fold crossvalidation resulted in the order PClass, Sex and Cabin.
+
+![XGBoost Important Features](img/xgboost.PNG)
