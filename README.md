@@ -33,3 +33,7 @@ My main focus in this notebook has been selecting the important features. I have
 4. Aplying different methods for feature selection to the same algorithm may cause different set of features as it was the case with catboost. Also it may change the order of important features. For instance applying RFE on XGBoost resulted in Sex, PClass and Cabin, while using 5-fold crossvalidation resulted in the order PClass, Sex and Cabin.
 
 ![XGBoost Important Features](img/xgboost.PNG)
+
+5- Permutation feature selection is a good simple way to find and rank all features as shown below:
+
+![Permutation Important Features](img/permutation.PNG)
